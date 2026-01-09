@@ -5,7 +5,7 @@ import { useLanguage } from "@/lib/language-context";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { GradientHeading } from "@/components/ui/gradient-heading";
+import { GradientHeading } from "./ui/gradient-heading";
 
 export default function FeaturedServicesSection() {
   const { t } = useLanguage();

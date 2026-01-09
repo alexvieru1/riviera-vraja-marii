@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/language-context";
-import { GradientHeading } from "@/components/ui/gradient-heading";
+import { GradientHeading } from "./ui/gradient-heading";
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -42,9 +42,9 @@ const HeroSection = () => {
       >
         {/* Example with translations - uncomment when ready: */}
         <div className="text-center px-4">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading-black mb-4">
+          <GradientHeading variant="light" size="xl" weight="bold" className="mb-4">
             {t("hero.title")}
-          </h1>
+          </GradientHeading>
           <p className="text-xl md:text-2xl text-gray-200">
             {t("hero.subtitle")}
           </p>

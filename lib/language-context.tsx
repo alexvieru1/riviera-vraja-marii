@@ -34,6 +34,8 @@ const translations = {
     "common.learn-more": "Află Mai Mult",
     "common.view-all-services": "Vezi Toate Serviciile",
 
+    "facilities.title": "Facilitati Premium",
+
     // Featured Services
     "services.featured.title": "Servicii Premium",
     "services.featured.subtitle": "Descoperă tratamentele noastre de top pentru regenerare completă.",
@@ -67,6 +69,8 @@ const translations = {
     "common.book-now": "Book Now",
     "common.learn-more": "Learn More",
     "common.view-all-services": "View All Services",
+
+    "facilities.title": "Premium Facilities",
 
     // Featured Services
     "services.featured.title": "Premium Services",
