@@ -1,9 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-const AVATAR_SIZE = 96;
 const EASING_X1 = 0.4;
 const EASING_Y1 = 0.0;
 const EASING_X2 = 0.2;
@@ -121,7 +121,7 @@ export default function ExpandableCards({
           >
             <div className="relative h-full w-full">
               {/* biome-ignore lint/performance/noImgElement: Using img for card image without Next.js Image optimizations */}
-              <img
+              <Image
                 alt={card.title}
                 className="h-full w-full object-cover"
                 height={300}
@@ -141,7 +141,7 @@ export default function ExpandableCards({
                 }}
                 className="absolute inset-0 flex flex-col justify-between p-4 md:p-6 text-white"
               >
-                <h2 className="font-bold text-xl md:text-2xl break-words">{card.title}</h2>
+                <h2 className="font-bold text-xl md:text-2xl wrap-break-word">{card.title}</h2>
                 {/* <div className="flex items-center gap-2">
                   <button
                     aria-label="Play video"
@@ -185,7 +185,7 @@ export default function ExpandableCards({
                       <div className="mt-4 flex items-center gap-3">
                         <div className="h-12 w-12 overflow-hidden rounded-full border bg-primary">
                           {/* biome-ignore lint/performance/noImgElement: Using img for author avatar without Next.js Image optimizations */}
-                          <img
+                          <Image
                             alt={card.author.name}
                             className="h-full w-full object-cover"
                             height={48}

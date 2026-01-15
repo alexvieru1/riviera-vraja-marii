@@ -88,7 +88,7 @@ export default function Navbar() {
                       >
                         {t(item.key)}
                         <motion.div
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#d4a574] to-[#b8936d]"
+                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-[#d4a574] to-[#b8936d]"
                           initial={{ scaleX: 0 }}
                           whileHover={{ scaleX: 1 }}
                           transition={{ duration: 0.3 }}

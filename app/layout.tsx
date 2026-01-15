@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import { LanguageProvider } from "@/lib/language-context";
 import type { Viewport } from "next";
+import FooterSection from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -74,6 +75,7 @@ export default function RootLayout({
         <LanguageProvider>
           <Navbar />
           {children}
+          <FooterSection />
         </LanguageProvider>
       </body>
     </html>

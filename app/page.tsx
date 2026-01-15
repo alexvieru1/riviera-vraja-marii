@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import HeroSection from "@/components/homepage/hero-section";
 import FeaturedServicesSection from "@/components/homepage/featured-services-section";
-import FacilitiesSlider from "@/components/homepage/facilities-slider";
 import WelcomeLoader from "@/components/welcome-loader";
-import AboutUsShort from "@/components/homepage/about-us-short";
+import { LogoCloud } from "@/components/logo-cloud";
+import OurVisionShort from "@/components/homepage/our-vision-section";
 
 export default function Home() {
   const [showLoader, setShowLoader] = useState(false);
@@ -38,8 +38,8 @@ export default function Home() {
       
       <div className="bg-background">
         <HeroSection />
-        <FacilitiesSlider />
-        <AboutUsShort />
+        <LogoCloud/>
+        <OurVisionShort />
         <FeaturedServicesSection />
       </div>
     </>

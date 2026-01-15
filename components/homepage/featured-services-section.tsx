@@ -45,7 +45,7 @@ export default function FeaturedServicesSection() {
         </div>
 
         {/* Expandable Cards */}
-        <div className="min-h-[350px]">
+        <div className="min-h-87.5">
           <ExpandableCards 
             cards={services} 
             className="w-full"

@@ -64,7 +64,7 @@ export default function WelcomeLoader({ onComplete }: WelcomeLoaderProps) {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-[9999] flex items-center justify-center"
+      className="fixed inset-0 z-9999 flex items-center justify-center"
       style={{ backgroundColor: '#f5f1eb' }}
     >
       <div className="relative flex h-20 w-80 items-center justify-center overflow-visible">

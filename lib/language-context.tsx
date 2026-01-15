@@ -34,7 +34,12 @@ const translations = {
     "common.learn-more": "Află Mai Mult",
     "common.view-all-services": "Vezi Toate Serviciile",
 
-    "facilities.title": "Facilitati Premium",
+    // Facilities
+    "facilities.title": "Facilități Premium",
+
+    //Our Vision
+    "our-vision-section.title": "Viziunea Noastră",
+    "our-vision-section.subtitle": "Lumea noastră se transformă cu o rapiditate fără precedent. Schimbările globale – de la digitalizare și inteligență artificială, la provocările climatice și fluctuațiile socio-economice – ne solicită sănătatea la un nivel nemaiîntâlnit. Aceste timpuri provocatoare cer o noua dimensiune a medicinei: o medicină care pune omul în centrul vindecării.",
 
     // Featured Services
     "services.featured.title": "Servicii Premium",
@@ -48,6 +53,14 @@ const translations = {
     
     "service.endo.title": "SeaMed EndoSupport",
     "service.endo.desc": "Abordare integrativă pentru sănătatea endocrină, susținută de elemente marine terapeutice.",
+
+    //Footer
+    "footer.customer-rules": "Regulament Pacienți",
+    "footer.terms": "Termeni și Condiții",
+    "footer.privacy": "Politica de Confidențialitate",
+    "footer.cookies": "Politica de Cookie-uri",
+    "footer.contact": "Contact",
+    "footer.copyright": "Vraja Mării by The Sea. Toate drepturile rezervate.",
   },
   en: {
     // Navigation
@@ -70,7 +83,12 @@ const translations = {
     "common.learn-more": "Learn More",
     "common.view-all-services": "View All Services",
 
+    // Facilities
     "facilities.title": "Premium Facilities",
+
+    //Our Vision
+    "our-vision-section.title": "Our Vision",
+    "our-vision-section.subtitle": "Our world is transforming at an unprecedented pace. Global changes – from digitalization and artificial intelligence to climate challenges and socio-economic fluctuations – are demanding our health at a level never seen before. These challenging times call for a new dimension of medicine: a medicine that puts people at the center of healing.",
 
     // Featured Services
     "services.featured.title": "Premium Services",
@@ -84,6 +102,14 @@ const translations = {
     
     "service.endo.title": "SeaMed EndoSupport",
     "service.endo.desc": "Integrative approach to endocrine health, supported by therapeutic marine elements.",
+
+    //Footer
+    "footer.copyright": "Vraja Mării by The Sea. All rights reserved.",
+    "footer.terms": "Terms and Conditions",
+    "footer.privacy": "Privacy Policy",
+    "footer.cookies": "Cookie Policy",
+    "footer.customer-rules": "Patient Rules",
+    "footer.contact": "Contact",
   },
 };
 
