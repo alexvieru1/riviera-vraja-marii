@@ -17,6 +17,7 @@ const navItems = [
   { key: "nav.medical-info", href: "/info-medical" },
   { key: "nav.gallery", href: "/galerie" },
   { key: "nav.contact", href: "/contact" },
+  { key: "nav.blog", href: "/blog" },
 ];
 
 export default function Navbar() {

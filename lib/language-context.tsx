@@ -24,6 +24,7 @@ const translations = {
     "nav.medical-info": "Info Medical",
     "nav.gallery": "Galerie",
     "nav.contact": "Contact",
+    "nav.blog": "Blogul Andreei",
     
     // Hero Section
     "hero.title": "Stiinta Longevitatii la Malul Marii",
@@ -54,6 +55,10 @@ const translations = {
     "service.endo.title": "SeaMed EndoSupport",
     "service.endo.desc": "Abordare integrativă pentru sănătatea endocrină, susținută de elemente marine terapeutice.",
 
+    //Blog
+    "blog.title": "Blogul Andreei",
+    "blog.subtitle": "Perspective despre biohacking, longevitate și wellness din expertiza Andreei.",
+    
     //Cookies Policy
     "cookies-policy.title": "Politica de Cookie-uri",
     "cookies-policy.content": "Aceasta este pagina Politicii de Cookie-uri.",
@@ -85,7 +90,7 @@ const translations = {
     "nav.medical-info": "Medical Info",
     "nav.gallery": "Gallery",
     "nav.contact": "Contact",
-    
+    "nav.blog": "Andreea's Blog",
     // Hero Section
     "hero.title": "The Science of Longevity by the Sea",
     "hero.subtitle": "Advanced biohacking and medical recovery in a seaside sanctuary.",
@@ -114,6 +119,10 @@ const translations = {
     
     "service.endo.title": "SeaMed EndoSupport",
     "service.endo.desc": "Integrative approach to endocrine health, supported by therapeutic marine elements.",
+
+    //Blog
+    "blog.title": "Andreea's Blog",
+    "blog.subtitle": "Insights on biohacking, longevity, and wellness from Andreea's expertise.",
 
     //Cookies Policy
     "cookies-policy.title": "Cookies Policy",
