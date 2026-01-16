@@ -108,16 +108,16 @@ export default async function BlogPage() {
                       </div>
                       {post.author && (
                         <span className="flex items-center gap-2">
-                          {post.author.avatar && (
+                          {post.author.avatar?.url && (
                             <Image
                               src={post.author.avatar.url}
-                              alt={post.author.firstName}
+                              alt={post.author.firstName || 'Author'}
                               width={20}
                               height={20}
-                              className="rounded-full"
+                              className="rounded-full object-cover"
                             />
                           )}
-                          {post.author.firstName}
+                          {post.author.firstName || 'Autor'}
                         </span>
                       )}
                     </div>

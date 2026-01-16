@@ -98,16 +98,16 @@ export default async function PostPage({ params }: Props) {
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
             {post.author && (
               <div className="flex items-center gap-2">
-                {post.author.avatar && (
+                {post.author.avatar?.url && (
                   <Image
                     src={post.author.avatar.url}
-                    alt={post.author.firstName}
+                    alt={post.author.firstName || 'Author'}
                     width={32}
                     height={32}
-                    className="rounded-full"
+                    className="rounded-full object-cover"
                   />
                 )}
-                <span className="font-medium">{post.author.firstName}</span>
+                <span className="font-medium">{post.author.firstName || 'Autor'}</span>
               </div>
             )}
             <span className="hidden sm:block">•</span>
@@ -150,6 +150,38 @@ export default async function PostPage({ params }: Props) {
         <div className="prose prose-lg prose-slate max-w-none mb-12">
           <RichTextRenderer content={post.content} />
         </div>
+
+        {/* Author Card */}
+        {post.author && (
+          <div className="bg-muted/30 rounded-2xl p-6 md:p-8 mb-12">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
+              {post.author.avatar?.url ? (
+                <Image
+                  src={post.author.avatar.url}
+                  alt={post.author.firstName || 'Author'}
+                  width={80}
+                  height={80}
+                  className="rounded-full shrink-0 object-cover"
+                />
+              ) : (
+                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <span className="text-2xl font-bold text-primary/60">
+                    {post.author.firstName?.charAt(0) || 'A'}
+                  </span>
+                </div>
+              )}
+              <div className="text-center sm:text-left">
+                <p className="text-sm text-muted-foreground mb-1">Scris de</p>
+                <h3 className="text-xl font-heading-bold mb-2">
+                  {post.author.firstName || 'Autor'}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  Publicat pe {formattedDate}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Footer */}
         <footer className="border-t border-border pt-8">

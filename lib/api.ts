@@ -8,16 +8,17 @@ export interface Post {
   excerpt?: string
   featuredImage?: {
     url: string
-    alt: string
-    width: number
-    height: number
+    alt?: string
+    width?: number
+    height?: number
   }
-  content: any // Lexical rich text content
-  author: {
+  content: unknown // Lexical rich text content
+  author?: {
     id: string
-    firstName: string
+    firstName?: string
     avatar?: {
       url: string
+      alt?: string
     }
   }
   status: 'draft' | 'published'
