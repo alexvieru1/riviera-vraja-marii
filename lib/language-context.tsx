@@ -38,7 +38,7 @@ const translations = {
     "facilities.title": "Facilități Premium",
 
     //Our Vision
-    "our-vision-section.title": "Viziunea Noastră",
+    "our-vision-section.title": "Viziunea Noastra",
     "our-vision-section.subtitle": "Lumea noastră se transformă cu o rapiditate fără precedent. Schimbările globale – de la digitalizare și inteligență artificială, la provocările climatice și fluctuațiile socio-economice – ne solicită sănătatea la un nivel nemaiîntâlnit. Aceste timpuri provocatoare cer o noua dimensiune a medicinei: o medicină care pune omul în centrul vindecării.",
 
     // Featured Services
@@ -53,6 +53,18 @@ const translations = {
     
     "service.endo.title": "SeaMed EndoSupport",
     "service.endo.desc": "Abordare integrativă pentru sănătatea endocrină, susținută de elemente marine terapeutice.",
+
+    //Cookies Policy
+    "cookies-policy.title": "Politica de Cookie-uri",
+    "cookies-policy.content": "Aceasta este pagina Politicii de Cookie-uri.",
+
+    //Terms and Conditions
+    "terms.title": "Termeni si Conditii",
+    "terms.content": "Aceasta este pagina Termeni si Condiții.",
+    
+    //Privacy
+    "privacy.title": "Politica de Confidentialitate",
+    "privacy.content": "Aceasta este pagina Politicii de Confidențialitate.",
 
     //Footer
     "footer.customer-rules": "Regulament Pacienți",
@@ -102,6 +114,18 @@ const translations = {
     
     "service.endo.title": "SeaMed EndoSupport",
     "service.endo.desc": "Integrative approach to endocrine health, supported by therapeutic marine elements.",
+
+    //Cookies Policy
+    "cookies-policy.title": "Cookies Policy",
+    "cookies-policy.content": "This is the Cookies Policy page.",
+
+    //Terms and Conditions
+    "terms.title": "Terms and Conditions",
+    "terms.content": "This is the Terms and Conditions page.",
+
+    //Privacy
+    "privacy.title": "Privacy Policy",
+    "privacy.content": "This is the Privacy Policy page.",
 
     //Footer
     "footer.copyright": "Vraja Mării by The Sea. All rights reserved.",
