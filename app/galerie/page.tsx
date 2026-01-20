@@ -1,8 +1,9 @@
+import BlogPostTest from '@/components/blog/blog-post-test'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>Galerie</div>
+    <div><BlogPostTest/></div>
   )
 }
 

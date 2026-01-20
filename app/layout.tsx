@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Merriweather } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar";
@@ -15,6 +15,17 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const serif = Merriweather({ 
+  subsets: ["latin"], 
+  weight: ["300", "400", "700", "900"],
+  variable: "--font-serif"
+});
+
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans"
 });
 
 const walkway = localFont({
@@ -70,7 +81,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${walkway.variable} antialiased m-0 p-0 bg-background`}
+        className={`${geistSans.variable} ${geistMono.variable} ${walkway.variable} ${serif.variable} ${sans.variable} antialiased m-0 p-0 bg-background`}
       >
         <LanguageProvider>
           <Navbar />

@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { LikeButton } from '@/components/blog/like-button'
 import { RichTextRenderer } from '@/components/blog/rich-text'
+import { Share } from 'lucide-react'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -57,159 +58,165 @@ export default async function PostPage({ params }: Props) {
   })
 
   return (
-    <main className="min-h-screen bg-white py-16">
-      {/* Back Link */}
-      <div className="container mx-auto px-4 pt-8">
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+    <main className="min-h-screen bg-[#f2f2f2] text-stone-900 py-20 px-4 font-serif">
+        {/* Back Link */}
+        <div className="mx-auto py-10 md:px-10 mb-6">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-800 transition-colors font-sans text-sm"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Înapoi la Blog
-        </Link>
-      </div>
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            Înapoi la Blog
+          </Link>
+        </div>
+      <article className="max-w-2xl mx-auto bg-transparent">
 
-      <article className="container mx-auto px-4 py-8 max-w-4xl">
-        {/* Header */}
-        <header className="mb-8 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading-black mb-4 leading-tight">
+
+        {/* Header Section */}
+        <header className="mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-stone-900">
             {post.title}
           </h1>
 
           {post.subtitle && (
-            <p className="text-lg md:text-xl text-primary/70 mb-6 font-medium">
+            <p className="text-lg md:text-xl text-stone-600 mb-6 font-medium italic">
               {post.subtitle}
             </p>
           )}
 
-          {/* Meta Info */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
-            {post.author && (
-              <div className="flex items-center gap-2">
-                {post.author.avatar?.url && (
+          {/* Author Meta */}
+          <div className="flex items-center justify-between border-b border-stone-300 pb-6 mb-6">
+            <div className="flex items-center gap-3">
+              {post.author?.avatar?.url ? (
+                <div className="w-10 h-10 rounded-full bg-stone-300 overflow-hidden relative">
                   <Image
                     src={post.author.avatar.url}
                     alt={post.author.firstName || 'Author'}
-                    width={32}
-                    height={32}
-                    className="rounded-full object-cover"
+                    width={40}
+                    height={40}
+                    className="object-cover"
                   />
-                )}
-                <span className="font-medium">{post.author.firstName || 'Autor'}</span>
+                </div>
+              ) : (
+                <div className="w-10 h-10 rounded-full bg-stone-300 flex items-center justify-center">
+                  <span className="text-sm font-bold text-stone-600">
+                    {post.author?.firstName?.charAt(0) || 'A'}
+                  </span>
+                </div>
+              )}
+              <div className="flex flex-col text-sm font-sans">
+                <span className="font-semibold text-stone-900">
+                  {post.author?.firstName || 'Vraja Mării'}
+                </span>
+                <time dateTime={post.publishedDate} className="text-stone-500">
+                  {formattedDate}
+                </time>
               </div>
-            )}
-            <span className="hidden sm:block">•</span>
-            <time dateTime={post.publishedDate}>{formattedDate}</time>
-            <span className="hidden sm:block">•</span>
-            <span className="flex items-center gap-1">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              {post.readTime} min de citit
-            </span>
+            </div>
+
+            <div className="flex gap-4 text-stone-500 font-sans text-sm items-center">
+              <span className="flex items-center gap-1">
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                {post.readTime} min
+              </span>
+              <LikeButton slug={post.slug} initialLikes={post.likes} />
+              <button className="flex items-center gap-1 hover:text-stone-800 transition">
+                <Share size={18} />
+              </button>
+            </div>
           </div>
         </header>
 
-        {/* Featured Image */}
+        {/* Hero Image */}
         {post.featuredImage && (
-          <div className="relative aspect-video rounded-xl overflow-hidden mb-10 shadow-lg">
-            <Image
-              src={post.featuredImage.url}
-              alt={post.featuredImage.alt || post.title}
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 1024px) 100vw, 896px"
-            />
-          </div>
+          <figure className="mb-10">
+            <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-sm overflow-hidden shadow-sm">
+              <Image
+                src={post.featuredImage.url}
+                alt={post.featuredImage.alt || post.title}
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 672px"
+              />
+            </div>
+            {post.featuredImage.alt && (
+              <figcaption className="text-center text-xs text-stone-500 mt-2 font-sans">
+                {post.featuredImage.alt}
+              </figcaption>
+            )}
+          </figure>
         )}
 
-        {/* Content */}
-        <div className="prose prose-lg prose-slate max-w-none mb-12">
+        {/* Main Content Prose */}
+        <div className="prose prose-stone prose-lg max-w-none leading-relaxed prose-headings:font-serif prose-p:font-serif mb-12">
           <RichTextRenderer content={post.content} />
         </div>
 
         {/* Author Card */}
         {post.author && (
-          <div className="bg-muted/30 rounded-2xl p-6 md:p-8 mb-12">
-            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
+          <div className="mt-16 pt-8 border-t border-stone-300">
+            <div className="flex items-center gap-4">
               {post.author.avatar?.url ? (
                 <Image
                   src={post.author.avatar.url}
                   alt={post.author.firstName || 'Author'}
-                  width={80}
-                  height={80}
+                  width={64}
+                  height={64}
                   className="rounded-full shrink-0 object-cover"
                 />
               ) : (
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <span className="text-2xl font-bold text-primary/60">
+                <div className="w-16 h-16 rounded-full bg-stone-300 flex items-center justify-center shrink-0">
+                  <span className="text-xl font-bold text-stone-600">
                     {post.author.firstName?.charAt(0) || 'A'}
                   </span>
                 </div>
               )}
-              <div className="text-center sm:text-left">
-                <p className="text-sm text-muted-foreground mb-1">Scris de</p>
-                <h3 className="text-xl font-heading-bold mb-2">
+              <div>
+                <p className="text-sm text-stone-500 font-sans">Scris de</p>
+                <h3 className="text-xl font-bold text-stone-900">
                   {post.author.firstName || 'Autor'}
                 </h3>
-                <p className="text-muted-foreground text-sm">
-                  Publicat pe {formattedDate}
-                </p>
               </div>
             </div>
           </div>
         )}
 
-        {/* Footer */}
-        <footer className="border-t border-border pt-8">
-          <div className="flex items-center justify-between">
-            <LikeButton slug={post.slug} initialLikes={post.likes} />
+        {/* Footer - Likes & Share */}
+        <div className="flex items-center gap-6 mt-12 pt-6 border-t border-stone-300 text-stone-500 text-sm font-sans">
+          <LikeButton slug={post.slug} initialLikes={post.likes} />
 
-            {/* Share buttons placeholder */}
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span className="text-sm">Distribuie:</span>
-              <button
-                className="p-2 hover:bg-muted rounded-full transition-colors"
-                aria-label="Share on Facebook"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-              </button>
-              <button
-                className="p-2 hover:bg-muted rounded-full transition-colors"
-                aria-label="Share on X"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </button>
-            </div>
+          <div className="ml-auto flex items-center gap-4">
+            <span className="flex items-center gap-1 cursor-pointer hover:text-stone-800 transition">
+              <Share size={14} /> Distribuie
+            </span>
           </div>
-        </footer>
+        </div>
+
       </article>
     </main>
   )
