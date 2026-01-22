@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.seo?.description || post.excerpt || undefined,
       images: post.seo?.ogImage?.url || post.featuredImage?.url,
       type: 'article',
-      publishedTime: post.publishedDate,
+      publishedTime: post.publishedDate || undefined,
     },
   }
 }
