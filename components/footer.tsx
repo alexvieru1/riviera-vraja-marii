@@ -29,7 +29,7 @@ const links = [
 export default function FooterSection() {
   const { t } = useLanguage();
   return (
-    <footer className="py-16 md:py-20 bg-white border-t border-t-muted-foreground/10">
+    <footer className="sticky z-0 bottom-0 left-0 py-16 md:py-20 bg-white border-t border-t-muted-foreground/10">
       <div className="mx-auto max-w-5xl px-6">
         <Link href="/" aria-label="go home" className="mx-auto block size-fit">
           <Image

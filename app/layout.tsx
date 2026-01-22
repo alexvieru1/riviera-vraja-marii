@@ -85,7 +85,9 @@ export default function RootLayout({
       >
         <LanguageProvider>
           <Navbar />
-          {children}
+          <main className="relative z-10 bg-background">
+            {children}
+          </main>
           <FooterSection />
         </LanguageProvider>
       </body>

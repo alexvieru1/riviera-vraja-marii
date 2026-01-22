@@ -51,11 +51,17 @@ export default async function PostPage({ params }: Props) {
     notFound()
   }
 
-  const formattedDate = new Date(post.publishedDate).toLocaleDateString('ro-RO', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
+  const formattedDate = post.publishedDate
+    ? new Date(post.publishedDate).toLocaleDateString('ro-RO', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : new Date(post.createdAt).toLocaleDateString('ro-RO', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
 
   return (
     <main className="min-h-screen bg-[#f2f2f2] text-stone-900 py-20 px-4 font-serif">
@@ -120,7 +126,7 @@ export default async function PostPage({ params }: Props) {
                 <span className="font-semibold text-stone-900">
                   {post.author?.firstName || 'Vraja Mării'}
                 </span>
-                <time dateTime={post.publishedDate} className="text-stone-500">
+                <time dateTime={post.publishedDate || post.createdAt} className="text-stone-500">
                   {formattedDate}
                 </time>
               </div>
@@ -143,7 +149,7 @@ export default async function PostPage({ params }: Props) {
                 </svg>
                 {post.readTime} min
               </span>
-              <LikeButton slug={post.slug} initialLikes={post.likes} />
+              <LikeButton slug={post.slug} initialLikes={post.likes ?? 0} />
               <button className="flex items-center gap-1 hover:text-stone-800 transition">
                 <Share size={18} />
               </button>
@@ -208,7 +214,7 @@ export default async function PostPage({ params }: Props) {
 
         {/* Footer - Likes & Share */}
         <div className="flex items-center gap-6 mt-12 pt-6 border-t border-stone-300 text-stone-500 text-sm font-sans">
-          <LikeButton slug={post.slug} initialLikes={post.likes} />
+          <LikeButton slug={post.slug} initialLikes={post.likes ?? 0} />
 
           <div className="ml-auto flex items-center gap-4">
             <span className="flex items-center gap-1 cursor-pointer hover:text-stone-800 transition">

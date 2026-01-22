@@ -1,36 +1,60 @@
 const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL
 
+export interface LexicalContent {
+  root: {
+    type: string
+    children: LexicalNode[]
+    direction: 'ltr' | 'rtl' | null
+    format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
+    indent: number
+    version: number
+  }
+}
+
+export interface LexicalNode {
+  type: string
+  children?: LexicalNode[]
+  text?: string
+  format?: number
+  tag?: string
+  listType?: string
+  url?: string
+  target?: string
+  rel?: string
+  value?: {
+    url?: string
+    alt?: string
+  }
+}
+
 export interface Post {
-  id: string
+  id: number
   title: string
   slug: string
-  subtitle?: string
-  excerpt?: string
+  subtitle?: string | null
+  excerpt?: string | null
   featuredImage?: {
+    id: number
     url: string
     alt?: string
-    width?: number
-    height?: number
-  }
-  content: unknown // Lexical rich text content
-  author?: {
-    id: string
-    firstName?: string
-    avatar?: {
-      url: string
-      alt?: string
-    }
+    width: number
+    height: number
+  } | null
+  content: LexicalContent
+  author: {
+    id: number
+    firstName: string
+    email: string
+    avatar?: { url: string } | null
   }
   status: 'draft' | 'published'
-  publishedDate: string
+  publishedDate?: string | null
   readTime: number
-  likes: number
+  likes?: number | null
   seo?: {
-    title?: string
-    description?: string
-    ogImage?: {
-      url: string
-    }
+    title?: string | null
+    description?: string | null
+    ogImage?: { url: string } | null
   }
   createdAt: string
   updatedAt: string

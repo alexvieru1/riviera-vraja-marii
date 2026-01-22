@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         hostname: 'pub-2a9adf81093f4af9a2207498e7872ee3.r2.dev',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'vm-blog-newsletter.vercel.app',
+        pathname: '/api/media/**',
+      },
     ],
   },
 };

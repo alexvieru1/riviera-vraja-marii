@@ -1,31 +1,11 @@
 'use client'
 
 import { Fragment } from 'react'
+import Image from 'next/image'
+import type { LexicalContent, LexicalNode } from '@/lib/api'
 
 interface RichTextRendererProps {
-  content: unknown
-}
-
-interface LexicalNode {
-  type: string
-  children?: LexicalNode[]
-  text?: string
-  format?: number
-  tag?: string
-  listType?: string
-  url?: string
-  target?: string
-  rel?: string
-  value?: {
-    url?: string
-    alt?: string
-  }
-}
-
-interface LexicalContent {
-  root: {
-    children: LexicalNode[]
-  }
+  content: LexicalContent | unknown
 }
 
 // Helper to check if a paragraph is empty
@@ -135,13 +115,21 @@ function renderNode(node: LexicalNode, index: number): React.ReactNode {
     case 'upload':
       if (node.value?.url) {
         return (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={index}
-            src={node.value.url}
-            alt={node.value.alt || ''}
-            className="rounded-lg my-6 max-w-full"
-          />
+          <figure key={index} className="my-6">
+            <Image
+              src={node.value.url}
+              alt={node.value.alt || ''}
+              width={800}
+              height={600}
+              className="rounded-lg max-w-full h-auto"
+              sizes="(max-width: 768px) 100vw, 672px"
+            />
+            {node.value.alt && (
+              <figcaption className="text-center text-sm text-stone-500 mt-2">
+                {node.value.alt}
+              </figcaption>
+            )}
+          </figure>
         )
       }
       return null
