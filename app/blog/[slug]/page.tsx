@@ -32,10 +32,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: post.seo?.title || `${post.title} | Vraja Mării by the Sea`,
-    description: post.seo?.description || post.excerpt,
+    description: post.seo?.description || post.excerpt || undefined,
     openGraph: {
       title: post.seo?.title || post.title,
-      description: post.seo?.description || post.excerpt,
+      description: post.seo?.description || post.excerpt || undefined,
       images: post.seo?.ogImage?.url || post.featuredImage?.url,
       type: 'article',
       publishedTime: post.publishedDate,
