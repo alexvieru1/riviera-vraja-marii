@@ -12,7 +12,7 @@ const HeroSection = () => {
     <section className="relative w-full h-screen overflow-hidden">
       {/* Desktop hero image */}
       <Image
-        src="/images/test.jpeg"
+        src="/images/gallery/vraja_marii_by_the_sea_eforie_sud_3.webp"
         alt="Riviera Vraja Mării"
         fill
         priority
@@ -22,7 +22,7 @@ const HeroSection = () => {
       
       {/* Mobile hero image */}
       <Image
-        src="/images/test-mobile.jpg"
+        src="/images/gallery/vraja_marii_by_the_sea_eforie_sud_1.webp"
         alt="Riviera Vraja Mării"
         fill
         priority
