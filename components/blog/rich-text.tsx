@@ -34,7 +34,7 @@ function formatText(text: string, format: number = 0): React.ReactNode {
     result = <s>{result}</s>
   }
   if (format & 16) {
-    result = <code className="bg-muted px-1 py-0.5 rounded text-sm">{result}</code>
+    result = <code className="bg-muted px-1 py-0.5 rounded-none text-sm">{result}</code>
   }
 
   return result
@@ -107,7 +107,7 @@ function renderNode(node: LexicalNode, index: number): React.ReactNode {
 
     case 'code':
       return (
-        <pre key={index} className="bg-muted p-4 rounded-lg overflow-x-auto my-4">
+        <pre key={index} className="bg-muted p-4 rounded-none overflow-x-auto my-4">
           <code>{children}</code>
         </pre>
       )
@@ -121,7 +121,7 @@ function renderNode(node: LexicalNode, index: number): React.ReactNode {
               alt={node.value.alt || ''}
               width={800}
               height={600}
-              className="rounded-lg max-w-full h-auto"
+              className="rounded-none max-w-full h-auto"
               sizes="(max-width: 768px) 100vw, 672px"
             />
             {node.value.alt && (

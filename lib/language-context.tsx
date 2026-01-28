@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 
 type Language = "ro" | "en";
 
@@ -10,7 +16,9 @@ interface LanguageContextType {
   t: (key: string) => string;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined,
+);
 
 const translations = {
   ro: {
@@ -25,40 +33,52 @@ const translations = {
     "nav.gallery": "Galerie",
     "nav.contact": "Contact",
     "nav.blog": "Blogul Andreei",
-    
+
     // Hero Section
     "hero.title": "Stiinta Longevitatii la Malul Marii",
-    "hero.subtitle": "Biohacking avansat și recuperare medicală într-o oază de relaxare.",
-    
+    "hero.subtitle":
+      "Biohacking avansat și recuperare medicală într-o oază de relaxare.",
+
     // Common
     "common.book-now": "Rezervă Acum",
     "common.learn-more": "Află Mai Mult",
     "common.view-all-services": "Vezi Toate Serviciile",
 
     // Facilities
-    "facilities.title": "Facilități Premium",
+    "facilities.title": "Facilități",
 
     //Our Vision
     "our-vision-section.title": "Viziunea Noastra",
-    "our-vision-section.subtitle": "Lumea noastră se transformă cu o rapiditate fără precedent. Schimbările globale – de la digitalizare și inteligență artificială, la provocările climatice și fluctuațiile socio-economice – ne solicită sănătatea la un nivel nemaiîntâlnit. Aceste timpuri provocatoare cer o noua dimensiune a medicinei: o medicină care pune omul în centrul vindecării.",
+    "our-vision-section.subtitle":
+      "Lumea noastră se transformă cu o rapiditate fără precedent. Schimbările globale – de la digitalizare și inteligență artificială, la provocările climatice și fluctuațiile socio-economice – ne solicită sănătatea la un nivel nemaiîntâlnit. Aceste timpuri provocatoare cer o noua dimensiune a medicinei: o medicină care pune omul în centrul vindecării.",
 
     // Featured Services
-    "services.featured.title": "Servicii Premium",
-    "services.featured.subtitle": "Descoperă tratamentele noastre de top pentru regenerare completă.",
-    
-    "service.hbot.title": "HBOT & Lumină Roșie",
-    "service.hbot.desc": "Oxigenare celulară intensă sub presiune combinată cu fotobiomodulare pentru regenerare accelerată.",
-    
+    "services.featured.title": "Servicii",
+    "services.featured.subtitle":
+      "Descoperă tratamentele noastre de top pentru regenerare completă.",
+
+    "service.hbot.title": "HBOT & Lumina Rosie",
+    "service.hbot.desc":
+      "Oxigenare celulară intensă sub presiune combinată cu fotobiomodulare pentru regenerare accelerată.",
+
     "service.iv.title": "IV Drips & NAD+",
-    "service.iv.desc": "Cocktailuri intravenoase personalizate și infuzii NAD+ pentru energie instantanee și claritate mentală.",
-    
+    "service.iv.desc":
+      "Cocktailuri intravenoase personalizate și infuzii NAD+ pentru energie instantanee și claritate mentală.",
+
     "service.endo.title": "SeaMed EndoSupport",
-    "service.endo.desc": "Abordare integrativă pentru sănătatea endocrină, susținută de elemente marine terapeutice.",
+    "service.endo.desc":
+      "Abordare integrativă pentru sănătatea endocrină, susținută de elemente marine terapeutice.",
+
+    //Galerie
+    "gallery.title": "Galeria Noastra",
+    "gallery.subtitle":
+      "Descoperă atmosfera relaxantă și facilitățile de top de la Riviera Vraja Mării",
 
     //Blog
     "blog.title": "Blogul Andreei",
-    "blog.subtitle": "Perspective despre biohacking, longevitate și wellness din expertiza Andreei.",
-    
+    "blog.subtitle":
+      "Perspective despre biohacking, longevitate și wellness din expertiza Andreei.",
+
     //Cookies Policy
     "cookies-policy.title": "Politica de Cookie-uri",
     "cookies-policy.content": "Aceasta este pagina Politicii de Cookie-uri.",
@@ -66,7 +86,7 @@ const translations = {
     //Terms and Conditions
     "terms.title": "Termeni si Conditii",
     "terms.content": "Aceasta este pagina Termeni si Condiții.",
-    
+
     //Privacy
     "privacy.title": "Politica de Confidentialitate",
     "privacy.content": "Aceasta este pagina Politicii de Confidențialitate.",
@@ -93,36 +113,48 @@ const translations = {
     "nav.blog": "Andreea's Blog",
     // Hero Section
     "hero.title": "The Science of Longevity by the Sea",
-    "hero.subtitle": "Advanced biohacking and medical recovery in a seaside sanctuary.",
-    
+    "hero.subtitle":
+      "Advanced biohacking and medical recovery in a seaside sanctuary.",
+
     // Common
     "common.book-now": "Book Now",
     "common.learn-more": "Learn More",
     "common.view-all-services": "View All Services",
 
     // Facilities
-    "facilities.title": "Premium Facilities",
+    "facilities.title": "Facilities",
 
     //Our Vision
     "our-vision-section.title": "Our Vision",
-    "our-vision-section.subtitle": "Our world is transforming at an unprecedented pace. Global changes – from digitalization and artificial intelligence to climate challenges and socio-economic fluctuations – are demanding our health at a level never seen before. These challenging times call for a new dimension of medicine: a medicine that puts people at the center of healing.",
+    "our-vision-section.subtitle":
+      "Our world is transforming at an unprecedented pace. Global changes – from digitalization and artificial intelligence to climate challenges and socio-economic fluctuations – are demanding our health at a level never seen before. These challenging times call for a new dimension of medicine: a medicine that puts people at the center of healing.",
 
     // Featured Services
-    "services.featured.title": "Premium Services",
-    "services.featured.subtitle": "Discover our top treatments for complete regeneration.",
+    "services.featured.title": "Services",
+    "services.featured.subtitle":
+      "Discover our top treatments for complete regeneration.",
 
     "service.hbot.title": "HBOT & Red Light",
-    "service.hbot.desc": "Intense cellular oxygenation under pressure combined with photobiomodulation for accelerated regeneration.",
-    
+    "service.hbot.desc":
+      "Intense cellular oxygenation under pressure combined with photobiomodulation for accelerated regeneration.",
+
     "service.iv.title": "IV Drips & NAD+",
-    "service.iv.desc": "Customized intravenous cocktails and NAD+ infusions for instant energy and mental clarity.",
-    
+    "service.iv.desc":
+      "Customized intravenous cocktails and NAD+ infusions for instant energy and mental clarity.",
+
     "service.endo.title": "SeaMed EndoSupport",
-    "service.endo.desc": "Integrative approach to endocrine health, supported by therapeutic marine elements.",
+    "service.endo.desc":
+      "Integrative approach to endocrine health, supported by therapeutic marine elements.",
+
+    //Gallery
+    "gallery.title": "Our Gallery",
+    "gallery.subtitle":
+      "Discover the relaxing atmosphere and top facilities at Riviera Vraja Mării",
 
     //Blog
     "blog.title": "Andreea's Blog",
-    "blog.subtitle": "Insights on biohacking, longevity, and wellness from Andreea's expertise.",
+    "blog.subtitle":
+      "Insights on biohacking, longevity, and wellness from Andreea's expertise.",
 
     //Cookies Policy
     "cookies-policy.title": "Cookies Policy",

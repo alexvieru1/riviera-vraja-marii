@@ -27,12 +27,12 @@ export const facilities: Facility[] = [
     width: 50,
     height: 50,
   },
-  {
-    url: "/icons/piscina.png",
-    name: { ro: "Piscină", en: "Pool" },
-    width: 50,
-    height: 50,
-  },
+  // {
+  //   url: "/icons/piscina.png",
+  //   name: { ro: "Piscină", en: "Pool" },
+  //   width: 50,
+  //   height: 50,
+  // },
   {
     url: "/icons/programe-integrative.png",
     name: { ro: "Programe Integrative", en: "Integrative Programs" },

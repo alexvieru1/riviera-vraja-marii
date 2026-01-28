@@ -14,7 +14,7 @@ const OurVisionShort = () => {
               visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
             }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            viewOptions={{ margin: "0px 0px -200px 0px" }}
+            viewOptions={{ margin: "0px 0px -200px 0px", once: true }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading-bold tracking-tight text-slate-900 mb-6">
               {t("our-vision-section.title")}
@@ -27,7 +27,7 @@ const OurVisionShort = () => {
               visible: { opacity: 1, y: 0, filter: "blur(0px)" },
             }}
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-            viewOptions={{ margin: "0px 0px -200px 0px" }}
+            viewOptions={{ margin: "0px 0px -200px 0px", once: true }}
           >
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
               {t("our-vision-section.subtitle")}

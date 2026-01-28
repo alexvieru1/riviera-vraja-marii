@@ -35,7 +35,7 @@ export default function LanguageSwitcher() {
 
   return (
     <motion.div 
-      className="relative w-10 h-5 rounded-full overflow-hidden cursor-pointer shadow-md "
+      className="relative w-10 h-5 rounded-none overflow-hidden cursor-pointer shadow-md "
       onClick={toggleLanguage}
       whileTap={{ scale: 0.95 }}
     >

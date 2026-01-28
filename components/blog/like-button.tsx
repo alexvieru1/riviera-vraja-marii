@@ -42,7 +42,7 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
       onClick={handleLike}
       disabled={hasLiked || isLoading}
       className={cn(
-        'inline-flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-200',
+        'inline-flex items-center gap-2 px-4 py-2 rounded-none border transition-all duration-200',
         hasLiked
           ? 'bg-red-50 border-red-200 text-red-600 cursor-default'
           : 'border-border hover:bg-red-50 hover:border-red-200 hover:text-red-600',

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import LanguageSwitcher from "./language-switcher";
@@ -24,6 +25,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +43,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || isOpen
+        scrolled || isOpen || !isHomePage
           ? "bg-[#f5f1eb] backdrop-blur-md shadow-lg"
           : "bg-[#f5f1eb]/00"
       }`}
@@ -63,49 +66,39 @@ export default function Navbar() {
             </motion.div>
           </Link>
 
-          {/* Desktop Menu Items - appear in navbar when open */}
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="hidden lg:flex items-center space-x-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-              >
-                {navItems.map((item, index) => (
+          {/* Desktop Menu Items - always visible */}
+          <div className="hidden lg:flex items-center space-x-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            {navItems.map((item) => (
+              <div key={item.href}>
+                <Link href={item.href}>
                   <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ delay: index * 0.05 }}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`px-3 py-2 text-sm font-medium ${
+                      scrolled || !isHomePage
+                        ? "text-[#8b7355] hover:text-[#6b5644]" 
+                        : "text-white hover:text-white/90"
+                    } relative group transition-colors whitespace-nowrap`}
                   >
-                    <Link href={item.href} onClick={() => setIsOpen(false)}>
-                      <motion.div
-                        whileHover={{ y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-3 py-2 text-sm font-medium text-[#8b7355] hover:text-[#6b5644] relative group transition-colors whitespace-nowrap"
-                      >
-                        {t(item.key)}
-                        <motion.div
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-[#d4a574] to-[#b8936d]"
-                          initial={{ scaleX: 0 }}
-                          whileHover={{ scaleX: 1 }}
-                          transition={{ duration: 0.3 }}
-                        />
-                      </motion.div>
-                    </Link>
+                    {t(item.key)}
+                    <motion.div
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-[#d4a574] to-[#b8936d]"
+                      initial={{ scaleX: 0 }}
+                      whileHover={{ scaleX: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
                   </motion.div>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+                </Link>
+              </div>
+            ))}
+          </div>
 
           {/* Language Switcher & Menu Button */}
           <div className="flex items-center gap-8 shrink-0">
             <LanguageSwitcher />
-            <HamburgerMenu isOpen={isOpen} setIsOpen={setIsOpen} color="bg-[#8b7355]" />
+            <div className="lg:hidden">
+              <HamburgerMenu isOpen={isOpen} setIsOpen={setIsOpen} color="bg-[#8b7355]" />
+            </div>
           </div>
         </div>
       </div>
@@ -132,7 +125,7 @@ export default function Navbar() {
                   <Link href={item.href} onClick={() => setIsOpen(false)}>
                     <motion.div
                       whileTap={{ scale: 0.98 }}
-                      className="block px-4 py-3 text-base font-medium text-[#8b7355] hover:text-[#6b5644] hover:bg-[#e8dfd3] rounded-md transition-colors"
+                      className="block px-4 py-3 text-base font-medium text-[#8b7355] hover:text-[#6b5644] hover:bg-[#e8dfd3] rounded-none transition-colors"
                     >
                       {t(item.key)}
                     </motion.div>

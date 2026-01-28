@@ -56,7 +56,7 @@ export default function FeaturedServicesSection() {
         {/* CTA Button */}
         <div className="flex justify-center mt-6">
           <Link href="/servicii-recuperare-medicala">
-            <Button size="lg" variant="outline" className="group text-lg px-8 py-6 rounded-full border-black/10 hover:border-black/30 bg-background text-foreground transition-all duration-300">
+            <Button size="lg" variant="outline" className="group text-lg px-8 py-6 rounded-none border-black/10 hover:border-black/30 bg-background text-foreground transition-all duration-300">
               {t("common.view-all-services")}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>

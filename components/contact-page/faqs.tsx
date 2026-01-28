@@ -37,7 +37,7 @@ export default function FAQs() {
                 <AccordionItem
                   key={item.id}
                   value={item.id}
-                  className="bg-background shadow-xs rounded-lg border px-4 last:border-b"
+                  className="bg-background shadow-xs rounded-none border px-4 last:border-b"
                 >
                   <AccordionTrigger className="cursor-pointer items-center py-5 hover:no-underline">
                     <div className="flex items-center gap-3">
