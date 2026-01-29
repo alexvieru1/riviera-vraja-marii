@@ -10,7 +10,7 @@ const GalleryPage = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="py-16 md:py-28 bg-white">
+    <div className="py-24 md:py-32 bg-white">
       <div className="container mx-auto px-4">
         <InView
           variants={{

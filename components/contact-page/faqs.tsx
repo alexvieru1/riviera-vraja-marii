@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export default function FAQs() {
   return (
-    <section className="bg-white dark:bg-background py-20">
+    <section>
       <div className="mx-auto max-w-5xl px-4 md:px-6">
         <div className="flex flex-col gap-10 md:flex-row md:gap-16">
           <div className="md:w-1/3">
