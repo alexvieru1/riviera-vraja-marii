@@ -1,9 +1,10 @@
 import FAQs from '@/components/contact-page/faqs'
-import React from 'react'
+import PageHeader from '@/components/page-header'
 
 const page = () => {
   return (
-    <div className='flex flex-col py-24 md:py-32 gap-12 md:gap-20 bg-white'>
+    <div className='flex flex-col py-20 gap-12 md:gap-20'>
+      <PageHeader title="contact.title" subtitle="contact.subtitle"/>
       <FAQs/>
     </div>
   )

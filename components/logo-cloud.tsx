@@ -9,7 +9,7 @@ import { useLanguage } from "@/lib/language-context";
 export const LogoCloud = () => {
   const { language, t } = useLanguage();
   return (
-    <section className="bg-background overflow-hidden">
+    <section className="bg-[#f5f1eb] overflow-hidden">
       <div className="group relative m-auto max-w-6xl px-6">
         <div className="flex flex-col items-center md:flex-row">
           <div className="relative py-6 md:w-[calc(100%)]">
@@ -34,8 +34,8 @@ export const LogoCloud = () => {
               ))}
             </InfiniteSlider>
 
-            <div className="bg-linear-to-r from-background absolute inset-y-0 left-0 w-20"></div>
-            <div className="bg-linear-to-l from-background absolute inset-y-0 right-0 w-20"></div>
+            <div className="bg-linear-to-r from-[#f5f1eb] absolute inset-y-0 left-0 w-20"></div>
+            <div className="bg-linear-to-l from-[#f5f1eb] absolute inset-y-0 right-0 w-20"></div>
             <ProgressiveBlur
               className="pointer-events-none absolute left-0 top-0 h-full w-20"
               direction="left"

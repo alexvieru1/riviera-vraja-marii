@@ -2,6 +2,7 @@ import { getPosts } from '@/lib/api'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import PageHeader from '@/components/page-header'
 
 export const metadata: Metadata = {
   title: 'Blog | Vraja Mării by the Sea',
@@ -12,18 +13,9 @@ export default async function BlogPage() {
   const { docs: posts } = await getPosts({ limit: 12 })
 
   return (
-    <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-gradient-to-b from-primary/5 to-background">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading-black mb-4">
-            Blogul Andreei
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Descoperă cele mai noi articole despre biohacking, longevitate și stil de viață sănătos.
-          </p>
-        </div>
-      </section>
+    <main className="min-h-screen bg-background py-20">
+      <PageHeader title="blog.title" subtitle="blog.subtitle" />
+
 
       {/* Posts Grid */}
       <section className="container mx-auto px-4 py-12 md:py-16">

@@ -1,35 +1,12 @@
-"use client";
-
 import { GALLERY_IMAGES } from "@/lib/gallery";
 import Image from "next/image";
-import { GradientHeading } from "@/components/ui/gradient-heading";
-import { InView } from "@/components/ui/in-view";
-import { useLanguage } from "@/lib/language-context";
+import PageHeader from "@/components/page-header";
 
 const GalleryPage = () => {
-  const { t } = useLanguage();
-
   return (
-    <div className="py-24 md:py-32 bg-white">
+    <div className="py-20">
+      <PageHeader title="gallery.title" subtitle="gallery.subtitle" />
       <div className="container mx-auto px-4">
-        <InView
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0 },
-          }}
-          transition={{ duration: 0.6 }}
-          viewOptions={{ once: true }}
-        >
-          <div className="text-center mb-16 space-y-4">
-            <GradientHeading size="lg" weight="bold">
-              {t("gallery.title")}
-            </GradientHeading>
-            <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-              {t("gallery.subtitle")}
-            </p>
-          </div>
-        </InView>
-
         {/* Bento Grid - Images Only */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-3 grid-flow-dense">
           {GALLERY_IMAGES.map((image) => (

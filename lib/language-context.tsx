@@ -74,6 +74,11 @@ const translations = {
     "gallery.subtitle":
       "Descoperă atmosfera relaxantă și facilitățile de top de la Riviera Vraja Mării",
 
+    //Contact
+    "contact.title": "Contacteaza-ne",
+    "contact.subtitle":
+      "Suntem aici pentru a răspunde întrebărilor tale și pentru a te ajuta să faci o programare.",
+
     //Blog
     "blog.title": "Blogul Andreei",
     "blog.subtitle":
@@ -198,6 +203,11 @@ const translations = {
     "gallery.subtitle":
       "Discover the relaxing atmosphere and top facilities at Riviera Vraja Mării",
 
+    //Contact
+    "contact.title": "Contact Us",
+    "contact.subtitle":
+      "We are here to answer your questions and help you make an appointment.",
+
     //Blog
     "blog.title": "Andreea's Blog",
     "blog.subtitle":
@@ -268,6 +278,19 @@ const translations = {
     "footer.cookies": "Cookie Policy",
     "footer.customer-rules": "Patient Rules",
     "footer.contact": "Contact",
+  },
+};
+
+const metaDataTranslations = {
+  ro: {
+    title: "Vraja Mării by The Sea - Centrul de Biohacking și Recuperare Medicală",
+    description:
+      "Descoperă știința longevității la malul mării cu tratamente avansate de biohacking și recuperare medicală la Vraja Mării by The Sea.",
+  },
+  en: {
+    title: "Vraja Mării by The Sea - Biohacking and Medical Recovery Center",
+    description:
+      "Discover the science of longevity by the sea with advanced biohacking and medical recovery treatments at Vraja Mării by The Sea.",
   },
 };
 

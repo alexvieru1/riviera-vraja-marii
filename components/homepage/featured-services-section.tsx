@@ -13,7 +13,7 @@ export default function FeaturedServicesSection() {
   const { t, language } = useLanguage();
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="py-24 bg-[#f5f1eb] relative overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
