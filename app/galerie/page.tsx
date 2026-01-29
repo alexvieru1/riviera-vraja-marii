@@ -18,6 +18,7 @@ const GalleryPage = () => {
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.6 }}
+          viewOptions={{ once: true }}
         >
           <div className="text-center mb-16 space-y-4">
             <GradientHeading size="lg" weight="bold">
