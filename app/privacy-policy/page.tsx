@@ -1,9 +1,12 @@
 "use client"
-import { useLanguage } from '@/lib/language-context';
-import React from 'react'
+import { useLanguage } from "@/lib/language-context";
 
 const PrivacyPolicy = () => {
   const { t } = useLanguage();
+
+  // We assume t("terms.content_paragraphs") returns the array from your JSON
+  const paragraphs = t("privacy.content_paragraphs") as unknown as string[];
+
   return (
     <div className="bg-white min-h-screen">
       <div className="container mx-auto px-4 py-24 md:py-32">
@@ -11,15 +14,26 @@ const PrivacyPolicy = () => {
           <h1 className="text-center font-heading-black text-3xl md:text-5xl">
             {t("privacy.title")}
           </h1>
+          
           <div className="prose prose-slate max-w-none">
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {t("privacy.content")}
-            </p>
+            {/* If the translation is an array, map through it to create paragraphs */}
+            {Array.isArray(paragraphs) ? (
+              paragraphs.map((paragraph, index) => (
+                <p key={index} className="text-lg leading-relaxed text-muted-foreground mb-4">
+                  {paragraph}
+                </p>
+              ))
+            ) : (
+              // Fallback in case it's a single string
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                {t("privacy.content")}
+              </p>
+            )}
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default PrivacyPolicy
+export default PrivacyPolicy;
